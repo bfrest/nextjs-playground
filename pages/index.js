@@ -14,7 +14,7 @@ export default function Home() {
 
   return (
     <div>
-      <p>Hello from the app</p>
+      <p>Home page boi</p>
       <button onClick={getData}>Get data</button>
     </div>
   );

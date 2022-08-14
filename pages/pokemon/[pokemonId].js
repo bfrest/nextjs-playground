@@ -1,9 +1,13 @@
-import Link from 'next/link';
+import styled from 'styled-components';
+
+const PokeMonImg = styled.img`
+  height: 500px;
+`;
 
 export default function Pokemon({ character }) {
   return (
     <div>
-      <img src={character.sprites.front_default} alt={character.name} />
+      <PokeMonImg src={character.sprites.front_default} alt={character.name} />
       <h1>{character.name}</h1>
       <h2>Pokedex Number: {character.id}</h2>
 
