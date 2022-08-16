@@ -5,11 +5,18 @@ const PokeMonImg = styled.img`
 `;
 
 export default function Pokemon({ character }) {
+  console.log(character);
   return (
     <div>
       <PokeMonImg src={character.sprites.front_default} alt={character.name} />
       <h1>{character.name}</h1>
       <h2>Pokedex Number: {character.id}</h2>
+
+      <h2>Moves to learn</h2>
+      {character.moves.map((move) => {
+        console.log(move.move.name);
+        <p>{move.move.name}</p>;
+      })}
 
       <h3>Games</h3>
       <ul>
