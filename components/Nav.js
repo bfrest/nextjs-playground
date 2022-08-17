@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 
-const NavStyles = styled.nav`
+const NavWrap = styled.nav`
   border: 2px solid black;
   background-color: lightcyan;
   padding: 10px;
@@ -20,10 +20,11 @@ const NavStyles = styled.nav`
 
 export default function Nav() {
   return (
-    <NavStyles>
+    <NavWrap>
       <Link href={'/'}>Home</Link>
+      <Link href={'/assets'}>Assets</Link>
       <Link href={'/pokemon'}>Pokemon</Link>
       <Link href={'/spotify'}>Spotify</Link>
-    </NavStyles>
+    </NavWrap>
   );
 }
