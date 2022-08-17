@@ -1,3 +1,4 @@
+import styled from 'styled-components';
 import Nav from '../components/Nav';
 import '../styles/globals.css';
 
