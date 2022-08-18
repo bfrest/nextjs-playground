@@ -14,9 +14,10 @@ const AssetStyle = styled.div`
   width: 100%;
   height: 100%;
   padding: 20px;
-  margin: 2rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  width: 100%;
+  justify-items: center;
 
   div {
     background: white;
@@ -47,6 +48,13 @@ const AssetStyle = styled.div`
       width: 100%;
     }
   }
+
+  button {
+    background-color: white;
+    border: 2px solid black;
+    margin: 10px;
+    padding: 10px;
+  }
 `;
 
 export default function assets() {
@@ -57,6 +65,8 @@ export default function assets() {
           <div key={product.id}>
             <img src={product.images[0]} />
             <p>{product.brand.toUpperCase()}</p>
+            <button>New Service</button>
+            <button>info</button>
           </div>
         );
       })}
