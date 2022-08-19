@@ -2,15 +2,8 @@ import styled from 'styled-components';
 import testData from '../testData';
 
 const AssetStyle = styled.div`
-  @font-face {
-    font-family: 'radnika_next';
-    src: url('/static/radnikanext-medium-webfont.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  font-family: 'radnika_next', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   width: 100%;
   height: 100%;
   padding: 20px;
@@ -46,14 +39,21 @@ const AssetStyle = styled.div`
     img {
       height: 300px;
       width: 100%;
+      :hover {
+        cursor: pointer;
+      }
     }
   }
 
   button {
     background-color: white;
-    border: 2px solid black;
+    border: 3px solid var(--black);
+    font-size: 1.2rem;
     margin: 10px;
     padding: 10px;
+    :hover {
+      cursor: pointer;
+    }
   }
 `;
 
@@ -64,7 +64,7 @@ export default function assets() {
         return (
           <div key={product.id}>
             <img src={product.images[0]} />
-            <p>{product.brand.toUpperCase()}</p>
+            <p>{product.brand.toLowerCase()}</p>
             <button>New Service</button>
             <button>info</button>
           </div>

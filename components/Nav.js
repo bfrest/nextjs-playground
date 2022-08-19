@@ -2,11 +2,13 @@ import Link from 'next/link';
 import styled from 'styled-components';
 
 const NavWrap = styled.nav`
-  border: 2px solid black;
-  background-color: lightcyan;
+  background-color: var(--yellow);
+  color: white;
   padding: 10px;
+  box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.09);
+
   a {
-    color: black;
+    color: var(--black);
     text-decoration: none;
     padding: 50px;
     font-size: 2rem;
