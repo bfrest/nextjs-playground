@@ -47,7 +47,7 @@ const AssetStyle = styled.div`
   }
 
   button {
-    background-color: white;
+    background-color: none;
     border: 3px solid var(--black);
     font-size: 1.2rem;
     margin: 10px;
@@ -69,13 +69,17 @@ export default function assets({ assetList }) {
             <img src={asset.images[0]} />
             <p>{asset.brand.toLowerCase()}</p>
 
-            <Link href={'/new-service'}>
-              <button>New Service</button>
-            </Link>
+            <div>
+              {/* TODO: make these side by side */}
+              <Link href={'/new-service'}>
+                {/* TODO: when clicked, open a modal passing the id for the asset */}
+                <button>New Service</button>
+              </Link>
 
-            <Link href={`/assets/${asset.id}`}>
-              <button>info</button>
-            </Link>
+              <Link href={`/assets/${asset.id}`}>
+                <button>info</button>
+              </Link>
+            </div>
           </div>
         );
       })}

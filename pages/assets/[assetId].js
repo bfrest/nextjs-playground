@@ -1,15 +1,31 @@
-import React from 'react';
 import testData from '../../testData';
+import styled from 'styled-components';
+
+const ItemStyles = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  height: 100%;
+  padding: 2rem 1rem;
+
+  img {
+    width: 40%;
+  }
+`;
 
 export default function Asset({ asset }) {
   return (
-    <div>
-      <img src={asset.images[0]} />
+    <ItemStyles>
+      <img src={asset.thumbnail} />
       <p>Category: {asset.category}</p>
       <p>Device Name: {asset.title}</p>
       <p>Manufactorer: {asset.brand}</p>
       <p>{asset.description}</p>
-    </div>
+      <p>{asset.rating}/10</p>
+      <p>{asset.category}</p>
+      <p>{asset.discountPercentage}%</p>
+    </ItemStyles>
   );
 }
 
