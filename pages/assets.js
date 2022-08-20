@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import testData from '../testData';
+import Link from 'next/link';
 
 const AssetStyle = styled.div`
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
@@ -53,23 +54,42 @@ const AssetStyle = styled.div`
     padding: 10px;
     :hover {
       cursor: pointer;
+      background-color: var(--yellow);
+      // 5AB834 possible green color for adding things
     }
   }
 `;
 
-export default function assets() {
+export default function assets({ assetList }) {
   return (
     <AssetStyle>
-      {testData.map((product) => {
+      {testData.map((asset) => {
         return (
-          <div key={product.id}>
-            <img src={product.images[0]} />
-            <p>{product.brand.toLowerCase()}</p>
-            <button>New Service</button>
-            <button>info</button>
+          <div key={asset.id}>
+            <img src={asset.images[0]} />
+            <p>{asset.brand.toLowerCase()}</p>
+
+            <Link href={'/new-service'}>
+              <button>New Service</button>
+            </Link>
+
+            <Link href={`/assets/${asset.id}`}>
+              <button>info</button>
+            </Link>
           </div>
         );
       })}
     </AssetStyle>
   );
+}
+
+export function getStaticProps() {
+  const assetList = testData;
+
+  // Allows the data from request to be available in props
+  return {
+    props: {
+      assetList,
+    },
+  };
 }
