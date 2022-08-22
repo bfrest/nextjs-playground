@@ -18,6 +18,7 @@ export default function Asset({ asset }) {
   return (
     <ItemStyles>
       <img src={asset.thumbnail} />
+      <p>Serial: {asset.id}</p>
       <p>Category: {asset.category}</p>
       <p>Device Name: {asset.title}</p>
       <p>Manufactorer: {asset.brand}</p>

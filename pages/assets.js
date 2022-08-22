@@ -86,6 +86,7 @@ export default function assets({ assetList }) {
             </ActionBar>
 
             <InfoPanel>
+              <p>Serial: {asset.id}</p>
               <p>hours: 909</p>
               <p>Next: service: 993hrs</p>
             </InfoPanel>
