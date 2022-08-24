@@ -8,21 +8,29 @@ const AssetStyle = styled.div`
   width: 100%;
   height: 100%;
   padding: 20px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
   width: 100%;
-  justify-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const AssetInfo = styled.div`
   background: white;
   border: 1px solid #ededed;
   box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.09);
-  position: relative;
   display: flex;
-  flex-direction: column;
+  align-items: center;
   width: 70%;
-  margin: 6%;
+
+  img {
+    width: 20%;
+    height: 200px;
+    object-fit: cover;
+
+    :hover {
+      cursor: pointer;
+    }
+  }
 
   p {
     line-height: 2;
@@ -35,7 +43,6 @@ const AssetInfo = styled.div`
 
 const Buttons = styled.div`
   background-color: rgba(0, 0, 0, 0);
-  width: 100%;
   display: flex;
   justify-content: space-between;
 
@@ -44,7 +51,6 @@ const Buttons = styled.div`
     border: 3px solid var(--black);
     font-size: 1.2rem;
     padding: 10px;
-    width: 50%;
 
     :hover {
       cursor: pointer;
@@ -54,24 +60,9 @@ const Buttons = styled.div`
   }
 `;
 
-const ActionBar = styled.div`
-  display: flex;
-  border-bottom: 2px solid gray;
-  height: 100%;
-
-  img {
-    width: 20%;
-    height: auto;
-    object-fit: cover;
-
-    :hover {
-      cursor: pointer;
-    }
-  }
-`;
-
-const InfoPanel = styled.div`
-  padding: 10px 5px;
+const GreenText = styled.div`
+  color: green;
+  padding: 0 15px;
 `;
 
 export default function assets({ assetList }) {
@@ -79,30 +70,16 @@ export default function assets({ assetList }) {
     <AssetStyle>
       {testData.map((asset) => {
         return (
-          <AssetInfo key={asset.id}>
-            <ActionBar>
+          <Link href={`/assets/${asset.id}`}>
+            <AssetInfo key={asset.id}>
               <img src={asset.images[0]} />
               <p>{asset.brand.toLowerCase()}</p>
-            </ActionBar>
-
-            <InfoPanel>
               <p>Serial: {asset.id}</p>
               <p>hours: 909</p>
-              <p>Next: service: 993hrs</p>
-            </InfoPanel>
-
-            <Buttons>
-              {/* TODO: make these side by side */}
-              <Link href={'/new-service'}>
-                {/* TODO: when clicked, open a modal passing the id for the asset */}
-                <button>New Service</button>
-              </Link>
-
-              <Link href={`/assets/${asset.id}`}>
-                <button>info</button>
-              </Link>
-            </Buttons>
-          </AssetInfo>
+              <p>Next service: 993hrs</p>
+              <GreenText>Good</GreenText>
+            </AssetInfo>
+          </Link>
         );
       })}
     </AssetStyle>
