@@ -25,8 +25,8 @@ export default function Nav() {
     <NavWrap>
       <Link href={'/'}>Home</Link>
       <Link href={'/assets'}>Assets</Link>
-      <Link href={'/pokemon'}>Pokemon</Link>
-      <Link href={'/spotify'}>Spotify</Link>
+      {/* <Link href={'/pokemon'}>Pokemon</Link>
+      <Link href={'/spotify'}>Spotify</Link> */}
     </NavWrap>
   );
 }
